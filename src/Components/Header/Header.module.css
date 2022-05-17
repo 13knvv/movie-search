@@ -1,0 +1,47 @@
+.header {
+  background-color: black;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logoWrapp {
+  display: flex;
+}
+
+.logoSvg {
+  width: 3rem;
+}
+
+.header h1 {
+  margin: 0 0.6rem;
+}
+
+.menu {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menuItem, .bookmarks {
+  font-size: 1.3rem;
+  font-weight: 500;
+  margin: 0 1.5rem;
+  padding: 0.3rem 1rem 0.4rem;
+  border-radius: 0.5rem;
+  transition: all 300ms;
+}
+
+.menuItem:hover, .bookmarks:hover,
+.navLink_Active .menuItem, .navLink_Active .bookmarks {
+  transform: scale(1.05);
+  background: linear-gradient(90deg, rgba(30,180,180,1) 0%, rgba(26,155,155,1) 39%, rgba(18,107,107,1) 99%);
+}
+
+.navLink, .navLink_Active {
+  display: block;
+  text-decoration: none;
+  color: #ffff;
+}
