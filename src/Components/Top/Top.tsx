@@ -1,12 +1,13 @@
 import { NavLink } from 'react-router-dom'
-import s from './Main.module.css'
+import s from './Top.module.css'
 
-const Main = () => {
+const Top = () => {
   return (
     <div>
+top
       <NavLink to={'/top/best-films'} >250 лучших фильмов</NavLink>
     </div>
   )
 }
 
-export default Main
+export default Top
