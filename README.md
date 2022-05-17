@@ -1,1 +1,1 @@
-# movieSearch
+# movie-search
