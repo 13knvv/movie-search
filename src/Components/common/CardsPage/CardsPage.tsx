@@ -1,4 +1,3 @@
-import { JsxChild } from 'typescript'
 import s from './CardsPage.module.css'
 
 interface ICardsPageProps {

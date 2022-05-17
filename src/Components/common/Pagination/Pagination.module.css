@@ -1,0 +1,16 @@
+.wrapp {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btnPage {
+  font-weight: 500;
+  width: 2.5rem;
+  height: 2.5rem;
+  margin: 1em;
+}
+
+.btnPage_active {
+  font-weight: 800;
+}

@@ -16,15 +16,20 @@ export interface IFilm {
 }
 
 interface IBestFilms {
-  pageCount?: number,
+  pagesCount?: number
   films?: Array<IFilm>
 }
 
 class FilmsStore {
   bestFilms: IBestFilms = {}
+  bestFilmsCurrentPage: number = 1
 
   constructor() {
     makeAutoObservable(this)
+  }
+
+  setBestFilmsCurrentPage(currentPage: number) {
+    this.bestFilmsCurrentPage = currentPage
   }
 
   setBestFilms(bestFilms: IBestFilms) {
@@ -34,6 +39,7 @@ class FilmsStore {
   async getBestFilms(currentPage: number) {
     const bestFilms = await filmAPI.getBestFilms(currentPage)
     this.bestFilms = bestFilms
+    this.setBestFilmsCurrentPage(currentPage)
   }
 
 }
