@@ -7,7 +7,6 @@ interface IPaginationProps {
 }
 
 const Pagination = (props: IPaginationProps) => {
-
   const pages = []
   for (let i = 1; i <= props.pagesCount; i++) {
         pages.push(i)
@@ -25,22 +24,64 @@ const Pagination = (props: IPaginationProps) => {
     }
     if (props.currentPage - 1 <= 0   &&
         (props.currentPage + 3 === page ||
-        props.currentPage + 4 === page)
+        props.currentPage + 4 === page ||
+        props.currentPage + 5 === page  ||
+        props.currentPage + 6 === page)
         ) {
         return true
     }
     if (props.currentPage - 2 <= 0 &&
+        (props.currentPage + 3 === page||
+          props.currentPage + 4 === page ||
+          props.currentPage + 5 === page)
+        ) {
+        return true
+    }
+    if (props.currentPage - 3 <= 0 &&
+        (props.currentPage + 3 === page||
+          props.currentPage + 4 === page)
+        ) {
+        return true
+    }
+    if (props.currentPage - 4 <= 0 &&
         (props.currentPage + 3 === page)
         ) {
         return true
     }
+
+    if ( props.currentPage === props.pagesCount  &&
+          (props.currentPage - 3 === page ||
+          props.currentPage - 4 === page ||
+          props.currentPage - 5 === page ||
+          props.currentPage - 6 === page)
+        ) {
+      return true
+    }
+    if ( props.currentPage + 1 >= props.pagesCount  &&
+          (props.currentPage - 3 === page ||
+          props.currentPage - 4 === page ||
+          props.currentPage - 5 === page)
+        ) {
+      return true
+    }
+    if ( props.currentPage + 2 >= props.pagesCount &&
+          (props.currentPage - 3 === page||
+            props.currentPage - 4 === page)
+        ) {
+      return true
+    }
+    if ( props.currentPage + 3 >= props.pagesCount &&
+          (props.currentPage - 3 === page)
+        ) {
+      return true
+    }
+
   })
 
   const pagesComponents = requiredPpages.map((i, index, arr) => {
-    //key={index} количество страничек не меняется
     return (<>
     { (i === props.pagesCount  
-      && arr[arr.length-2] !== pages.length-1 ) ? <div>. . .</div> : ''}
+      && arr[arr.length-2] !== pages.length-1 ) ? <div className={s.btnNotPage}>. . .</div> : ''}
 
     <button key={index} 
             className={s.btnPage + ' ' + (props.currentPage === i ? s.btnPage_active : '')}
@@ -48,7 +89,7 @@ const Pagination = (props: IPaginationProps) => {
       {i} 
     </button>
 
-    { (i === 1 && arr[1] !== 2) ? <div>. . .</div> : ''}
+    { (i === 1 && arr[1] !== 2) ? <div className={s.btnNotPage}>. . .</div> : ''}
     </>)
   
 })

@@ -27,7 +27,7 @@ const BestFilms = () => {
 
   return (
     <div>
-      <Pagination pagesCount={pagesCount}
+      <Pagination pagesCount={133}
                   currentPage={currentPage}
                   onPageChange={onPageChange} />
       <CardsPage>
