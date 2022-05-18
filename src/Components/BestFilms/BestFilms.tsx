@@ -12,10 +12,6 @@ const BestFilms = () => {
   const films = toJS(filmsStore.bestFilms.films)
   const pagesCount: any = filmsStore.bestFilms.pagesCount
   const currentPage = filmsStore.bestFilmsCurrentPage
-  const pages = []
-  for (let i = 1; i < pagesCount; i++) {
-        pages.push(i)
-    }
 
   useEffect(() =>  {
     filmsStore.getBestFilms(currentPage)
@@ -29,16 +25,9 @@ const BestFilms = () => {
     return <Card film={film} key={film.filmId} />
   })
 
-  
-  // const pagesComponents = pages.map((i, index) => {
-  //     return <button key={index} className={currentPage === i ? s.user__btnPage_active : ''}
-  //         onClick={() => onPageChange(i)}>{i}</button>
-  // })
-
-
   return (
     <div>
-      <Pagination pages={pages}
+      <Pagination pagesCount={pagesCount}
                   currentPage={currentPage}
                   onPageChange={onPageChange} />
       <CardsPage>
