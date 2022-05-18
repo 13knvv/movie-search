@@ -1,0 +1,51 @@
+.title a {
+  color: #ffffff;
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.title a:hover {
+  color: rgba(243, 253, 253, 0.705);
+}
+
+.scrollWrapp {
+  width: 100%;
+  overflow: hidden;
+}
+
+.cardsWrapp {
+  display: flex;
+  margin-left: 0px;
+}
+.scrollContainer {
+  position: relative;
+}
+
+.beforeArrow, .nextArrow {
+  position: absolute;
+  top: 44%;
+  width: 50px;
+  height: 50px;
+  transition: var(--transition);
+  cursor: pointer;
+}
+.beforeArrow svg, .nextArrow svg {
+  fill:#ffffff;
+  transition: var(--transition);
+}
+.beforeArrow:hover svg, .nextArrow:hover svg {
+  fill:rgba(243, 253, 253, 0.705);
+  transform: scale(1.2);
+}
+.beforeArrow:active svg, .nextArrow:active svg {
+  transform: scale(1);
+}
+
+.beforeArrow {
+  left: -60px;
+  transform: rotate(-180deg);
+}
+
+.nextArrow {
+  right: -60px;
+}

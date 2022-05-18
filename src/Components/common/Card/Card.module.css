@@ -1,11 +1,19 @@
 .card {
+  position: relative;
   transition: all 0.3s;
   cursor: pointer;
+  width: 23%;
+  margin: 1.5% 1%;
 }
 
 .posterWrapp {
   width: 100%;
   position: relative;
+}
+
+.cardInScroll {
+  width: 255px;
+  margin: 0 11.5px;
 }
 
 .posterWrapp img {

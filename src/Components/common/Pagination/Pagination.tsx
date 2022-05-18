@@ -13,6 +13,9 @@ const Pagination = (props: IPaginationProps) => {
     }
 
   const requiredPpages = pages.filter(page => {
+    // выглядет ужасно. ищу вариант рефакторинга
+
+    // показать 2 страниц до текущей и 2 страниц после + 1-ую и последнюю
     if (props.currentPage - 2 === page ||
         props.currentPage - 1 === page ||
         props.currentPage === page ||
@@ -22,7 +25,8 @@ const Pagination = (props: IPaginationProps) => {
         page === 1 ) {
       return true
     }
-    if (props.currentPage - 1 <= 0   &&
+    // если страница первая то показать после себя еще 4 кроме 2 по умолчанию
+    if (props.currentPage === 1   &&
         (props.currentPage + 3 === page ||
         props.currentPage + 4 === page ||
         props.currentPage + 5 === page  ||
@@ -30,25 +34,28 @@ const Pagination = (props: IPaginationProps) => {
         ) {
         return true
     }
-    if (props.currentPage - 2 <= 0 &&
+    // если страница вторая то показать после себя еще 3  кроме 2 по умолчанию
+    if (props.currentPage === 2 &&
         (props.currentPage + 3 === page||
           props.currentPage + 4 === page ||
           props.currentPage + 5 === page)
         ) {
         return true
     }
-    if (props.currentPage - 3 <= 0 &&
+    // если страница третья то показать после себя еще 2  кроме 2 по умолчанию
+    if (props.currentPage === 3 &&
         (props.currentPage + 3 === page||
           props.currentPage + 4 === page)
         ) {
         return true
     }
-    if (props.currentPage - 4 <= 0 &&
+    // если страница четвертая то показать после себя еще 1  кроме 2 по умолчанию
+    if (props.currentPage === 4 &&
         (props.currentPage + 3 === page)
         ) {
         return true
     }
-
+    // тоже самое только длю конца
     if ( props.currentPage === props.pagesCount  &&
           (props.currentPage - 3 === page ||
           props.currentPage - 4 === page ||
@@ -57,20 +64,20 @@ const Pagination = (props: IPaginationProps) => {
         ) {
       return true
     }
-    if ( props.currentPage + 1 >= props.pagesCount  &&
+    if ( props.currentPage === props.pagesCount - 1  &&
           (props.currentPage - 3 === page ||
           props.currentPage - 4 === page ||
           props.currentPage - 5 === page)
         ) {
       return true
     }
-    if ( props.currentPage + 2 >= props.pagesCount &&
+    if ( props.currentPage === props.pagesCount - 2 &&
           (props.currentPage - 3 === page||
             props.currentPage - 4 === page)
         ) {
       return true
     }
-    if ( props.currentPage + 3 >= props.pagesCount &&
+    if ( props.currentPage === props.pagesCount - 3 &&
           (props.currentPage - 3 === page)
         ) {
       return true

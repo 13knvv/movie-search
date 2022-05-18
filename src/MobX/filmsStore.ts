@@ -37,8 +37,8 @@ class FilmsStore {
   }
 
   async getBestFilms(currentPage: number) {
-    //const bestFilms = await filmAPI.getBestFilms(currentPage)
-    //this.bestFilms = bestFilms
+    const bestFilms = await filmAPI.getBestFilms(currentPage)
+    this.bestFilms = bestFilms
     this.setBestFilmsCurrentPage(currentPage)
   }
 

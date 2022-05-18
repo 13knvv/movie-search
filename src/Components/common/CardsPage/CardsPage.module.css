@@ -1,5 +1,5 @@
 .wrapp {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-gap: 2% 2%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }

@@ -3,6 +3,7 @@ import s from './Card.module.css'
 
 interface ICardProps {
   film: IFilm
+  inScroll?: boolean
 }
 
 const Card = (props: ICardProps) => {
@@ -21,7 +22,7 @@ const Card = (props: ICardProps) => {
   const listGenres = genres.map(item => item.genre).join(', ')
   
   return (
-    <div className={s.card}>
+    <div className={s.card + ' ' + (props.inScroll ? s.cardInScroll : '')}>
       <div className={s.posterWrapp}>
         <img src={posterUrlPreview} alt={nameRu} />
         <div className={s.cardDetails}>
