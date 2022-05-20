@@ -8,24 +8,51 @@
   color: rgba(243, 253, 253, 0.705);
 }
 
-.scrollWrapp {
-  width: 100%;
-  overflow: hidden;
-}
-
-.cardsWrapp {
-  display: flex;
-  margin-left: 0px;
-}
 .scrollContainer {
   position: relative;
 }
 
+.scrollWrapp {
+  width: 1010px;  
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+.wrappForArrow {
+  margin: 0 auto;
+  width: 1110px;
+  position: relative;
+}
+
+@media only screen and (max-width: 1160px) {
+  .scrollWrapp {
+    width: 900px;
+  }
+  .wrappForArrow {
+    width: 1000px;
+  }
+}
+@media only screen and (max-width: 1055px) {
+  .wrappForArrow {
+    width: 100%;
+  }
+}
+
+
+.cardsWrapp {
+  display: flex;
+  margin-left: 0px;
+  transition: margin-left ease-out 600ms;
+}
+
+
 .beforeArrow, .nextArrow {
   position: absolute;
-  top: 44%;
-  width: 50px;
-  height: 50px;
+  top: 33%;
+  width: 2.8rem;
+  height: 2.8rem;
+  background: none;
+  border: none;
   transition: var(--transition);
   cursor: pointer;
 }
@@ -42,10 +69,28 @@
 }
 
 .beforeArrow {
-  left: -60px;
+  left: 0px;
   transform: rotate(-180deg);
 }
 
 .nextArrow {
-  right: -60px;
+  right: 0px;
+}
+
+@media only screen and (max-width: 1024px) {
+  .scrollWrapp {
+    width: 100%;  
+    overflow-x: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scrollWrapp::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  }
+
+  .beforeArrow, .nextArrow {
+    display: none;
+  }
 }

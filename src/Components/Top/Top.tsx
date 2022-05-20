@@ -15,11 +15,9 @@ const Top = () => {
   }, [])
 
   return (
-    <div>
       <ScrollBlock  link={'/top/best-films'}
                     title={'250 лучших фильмов'}
                     films={films} />
-    </div>
   )
 }
 
