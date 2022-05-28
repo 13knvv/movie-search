@@ -1,43 +1,34 @@
-import { toJS } from 'mobx'
-import { observer } from 'mobx-react-lite'
-import { useEffect } from 'react'
-import { useStores } from '../../MobX/stores'
+import { IFilm } from '../../MobX/filmsStore'
 import Card from '../common/Card/Card'
 import CardsPage from '../common/CardsPage/CardsPage'
 import Pagination from '../common/Pagination/Pagination'
 import s from './BestFilms.module.css'
 
-const BestFilms = () => {
-  const { filmsStore } = useStores()
-  const films = toJS(filmsStore.bestFilms.films)
-  const pagesCount: any = filmsStore.bestFilms.pagesCount
-  const currentPage = filmsStore.bestFilmsCurrentPage
+interface IBestFilmsProps {
+  pagesCount: number
+  currentPage: number
+  onPageChange: (page: number) => any
+  bestFilms?: Array<IFilm>
+}
 
-  useEffect(() =>  {
-    filmsStore.getBestFilms(currentPage)
-  }, [])
-
-  const onPageChange = (page: number) => {
-    filmsStore.getBestFilms(page)
-  }
-
-  const cardsOfFilm = films?.map(film => {
+const BestFilms = (props: IBestFilmsProps) => {
+  const cardsOfFilm = props.bestFilms?.map(film => {
     return <Card film={film} key={film.filmId} />
   })
 
   return (
     <div>
-      <Pagination pagesCount={pagesCount}
-                  currentPage={currentPage}
-                  onPageChange={onPageChange} />
+      <Pagination pagesCount={props.pagesCount}
+                  currentPage={props.currentPage}
+                  onPageChange={props.onPageChange} />
       <CardsPage>
         {cardsOfFilm}
       </CardsPage>
-      <Pagination pagesCount={pagesCount}
-                  currentPage={currentPage}
-                  onPageChange={onPageChange} />
+      <Pagination pagesCount={props.pagesCount}
+                  currentPage={props.currentPage}
+                  onPageChange={props.onPageChange} />
     </div>
   )
 }
 
-export default observer(BestFilms) 
+export default BestFilms

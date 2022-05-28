@@ -1,24 +1,17 @@
-import { toJS } from 'mobx'
-import { observer } from 'mobx-react-lite'
-import { useEffect } from 'react'
 import { IFilm } from '../../MobX/filmsStore'
-import { useStores } from '../../MobX/stores'
-import ScrollBlock from '../common/ScrollBlock/ScrollBlock'
+import ScrollBlockContainer from '../common/ScrollBlock/ScrollBlockContainer'
 import s from './Top.module.css'
 
-const Top = () => {
-  const { filmsStore } = useStores()
-  const films = toJS(filmsStore.bestFilms.films)
+interface ITopProps {
+  bestFilms?: Array<IFilm>
+}
 
-  useEffect(() =>  {
-    filmsStore.getBestFilms(1)
-  }, [])
-
+const Top = (props: ITopProps) => {
   return (
-      <ScrollBlock  link={'/top/best-films'}
-                    title={'250 лучших фильмов'}
-                    films={films} />
+      <ScrollBlockContainer  link={'/top/best-films'}
+                             title={'250 лучших фильмов'}
+                             films={props.bestFilms} />
   )
 }
 
-export default observer(Top)
+export default Top

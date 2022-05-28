@@ -2,8 +2,8 @@
   position: relative;
   transition: all 0.3s;
   cursor: pointer;
-  width: 23%;
-  margin: 1.5% 1%;
+  width: 15.5rem;
+  margin: 0.9rem 0.7rem;
 }
 
 .cardInScroll {
@@ -13,6 +13,12 @@
   font-size: 1rem;
 }
 
+.posterWrapp {
+  width: 100%;
+  height: 372px;
+  position: relative;
+}
+
 @media only screen and (max-width: 1160px) {
   .cardInScroll {
     min-width: 170px;
@@ -20,9 +26,20 @@
   }
 }
 
-.posterWrapp {
-  width: 100%;
-  position: relative;
+@media only screen and (max-width: 1200px) {
+  .posterWrapp {
+    height: 327px;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .posterWrapp {
+    height: 280px;
+  }
+}
+
+.cardInScroll .posterWrapp {
+  height: auto;
 }
 
 .posterWrapp img {
