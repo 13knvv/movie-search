@@ -8,13 +8,21 @@ const axiosBase = axios.create({
 
 export const filmAPI = {
     
+    getMovie(filmId) {
+        return axiosBase.get(`/api/v2.2/films/${filmId}`)
+                  .then(response => {
+                    console.log(response.data);
+                    return response.data
+                    }
+                  )
+    },
+
     getBestFilms(currentPage = 1) {
         return axiosBase.get(`/api/v2.2/films/top?type=TOP_250_BEST_FILMS&page=${currentPage}`)
-            .then(response => {
-              console.log(response.data);
-              return response.data
-            }
-              )
+                    .then(response => {
+                        return response.data
+                      }
+                    )
     }
 
 }

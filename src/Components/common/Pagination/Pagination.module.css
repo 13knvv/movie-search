@@ -1,3 +1,7 @@
+.buttonWrapp {
+  display: flex;
+}
+
 .wrapp {
   display: flex;
   align-items: center;

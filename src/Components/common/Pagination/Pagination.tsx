@@ -86,18 +86,18 @@ const Pagination = (props: IPaginationProps) => {
   })
 
   const pagesComponents = requiredPpages.map((i, index, arr) => {
-    return (<>
+    return (<div className={s.buttonWrapp} key={index}>
     { (i === props.pagesCount  
       && arr[arr.length-2] !== pages.length-1 ) ? <div className={s.btnNotPage}>. . .</div> : ''}
 
-    <button key={index} 
+    <button 
             className={s.btnPage + ' ' + (props.currentPage === i ? s.btnPage_active : '')}
             onClick={() => props.onPageChange(i)}>
       {i} 
     </button>
 
     { (i === 1 && arr[1] !== 2) ? <div className={s.btnNotPage}>. . .</div> : ''}
-    </>)
+    </div>)
   
 })
 
