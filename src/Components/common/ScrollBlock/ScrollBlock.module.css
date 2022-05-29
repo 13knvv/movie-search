@@ -13,7 +13,8 @@
 }
 
 .scrollWrapp {
-  width: 1010px;  
+  width: 1010px;
+  min-height: 341px;
   overflow: hidden;
   margin: 0 auto;
 }
@@ -27,6 +28,7 @@
 @media only screen and (max-width: 1160px) {
   .scrollWrapp {
     width: 900px;
+    min-height: 301px;
   }
   .wrappForArrow {
     width: 1000px;
