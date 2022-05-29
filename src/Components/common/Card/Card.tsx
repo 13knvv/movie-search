@@ -1,3 +1,5 @@
+import { NavLink } from 'react-router-dom'
+import { Navigate } from 'react-router-dom'
 import { IFilm } from '../../../MobX/filmsStore'
 import s from './Card.module.css'
 
@@ -20,19 +22,21 @@ const Card = (props: ICardProps) => {
           year } = props.film
 
   const listGenres = genres.map(item => item.genre).join(', ')
-  
+
   return (
-    <div className={s.card + ' ' + (props.inScroll ? s.cardInScroll : '')}>
-      <div className={s.posterWrapp}>
-        <img src={posterUrlPreview} alt={nameRu} />
-        <div className={s.cardDetails}>
-          <div>Жанр: {listGenres}</div>
-          {rating}
-          <div>Год:{year}</div>
+    <NavLink to={`/movie/${filmId}`} className={s.cardLink} >
+      <div className={s.card + ' ' + (props.inScroll ? s.cardInScroll : '')} >
+        <div className={s.posterWrapp}>
+          <img src={posterUrlPreview} alt={nameRu} />
+          <div className={s.cardDetails}>
+            <div>Жанр: {listGenres}</div>
+            {rating}
+            <div>Год:{year}</div>
+          </div>
         </div>
+        <h3>{nameRu}</h3>
       </div>
-      <h3>{nameRu}</h3>
-    </div>
+    </NavLink>
   )
 }
 
