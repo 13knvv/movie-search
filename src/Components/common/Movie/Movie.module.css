@@ -1,3 +1,23 @@
 .posterInfoWrapp {
   display: flex;
 }
+
+.poster {
+  width: 30%;
+  margin-right: 1rem;
+}
+
+.poster img {
+  width: 100%;
+}
+
+.coverUrl {
+  width: 100%;
+}
+.coverUrl img {
+  width: 100%;
+}
+
+.info {
+  width: 70%;
+}
