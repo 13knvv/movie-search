@@ -12,7 +12,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: #282c34;
   color: #ffffff;
-  
+  letter-spacing: 0.03rem;
 }
 
 @media only screen and (max-width: 1200px) {
@@ -29,4 +29,8 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+h2, h3, h4, h5, h6 {
+  letter-spacing: 0.07rem;
 }

@@ -1,0 +1,18 @@
+.ratingWrapp {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(59, 59, 59, 0.615);
+  border-radius: 50%;
+  box-shadow: 0px 0px 8px 1px rgba(255, 255, 255, 0.17);
+}
+
+.ratingText{
+  position: absolute;
+  margin-top: -0.15em;
+}
+
+.circle {
+  transform-origin: center;
+  transform: rotate(-90deg);
+}

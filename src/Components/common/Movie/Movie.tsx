@@ -3,6 +3,7 @@ import { observer } from 'mobx-react-lite'
 import { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { useStores } from '../../../MobX/stores'
+import CircleRating from '../CircleRating/CircleRating'
 import s from './Movie.module.css'
 
 
@@ -32,41 +33,45 @@ const Movie = () => {
           <img src={movie.posterUrl} alt={namesMovie} />
         </div>
         <div className={s.info}>
-          <h3>{namesMovie}</h3>
+          <h2>{namesMovie}</h2>
           { movie.ratingKinopoisk && 
-                                  <div>Рейтинг Kinopoisk: {movie.ratingKinopoisk} /
-                                    {movie?.ratingKinopoiskVoteCount} голосов
+                                  <div>
+                                    <div>Kinopoisk</div> 
+                                    <CircleRating percent={movie.ratingKinopoisk}/>
+                                    <div>{movie?.ratingKinopoiskVoteCount} голосов</div>
                                   </div>
           }
 
-          { movie.ratingImdb &&  
-                            <div>Рейтинг Imdb: {movie.ratingImdb} / 
-                              {movie?.ratingImdbVoteCount} голосов
+          { movie.ratingImdb &&
+                            <div>
+                              <div>Imdb</div> 
+                              <CircleRating percent={movie.ratingImdb}/>
+                              <div>{movie?.ratingImdbVoteCount} голосов</div>
                             </div>
           }
 
           { movie.year && 
-                      <div>Год: {movie.year}</div>
+                      <div><span className={s.infoItem}>Год: </span>{movie.year}</div>
           }
 
           { countries && 
-                      <div>Страна: {countries}</div>
+                      <div><span className={s.infoItem}>Страна: </span>{countries}</div>
           }
 
           { genres && 
-                    <div>Жанр: {genres}</div>
+                    <div><span className={s.infoItem}>Жанр: </span>{genres}</div>
           }
 
           { movie.filmLength &&
-                    <div>Продолжительность: {movie.filmLength + ' мин.'}</div>
+                    <div><span className={s.infoItem}>Продолжительность: </span>{movie.filmLength + ' мин.'}</div>
           }
           
           { ageLimits &&
-                    <div>Возрастные ограничения: {ageLimits}</div>
+                    <div><span className={s.infoItem}>Возрастные ограничения: </span>{ageLimits}</div>
           }
           
           { movie.description && 
-                    <div>{movie.description}</div>
+                    <p>{movie.description}</p>
           }
           
         </div>

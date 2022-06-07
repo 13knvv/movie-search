@@ -57,12 +57,12 @@
   display: block;
 }
 
-.card h3 {
+.card h4 {
   margin: 0.7rem 0;
 }
-.cardInScroll h3 {
+
+.cardInScroll h4 {
   margin: 0.5rem 0;
-  font-size: 1.1rem;
   font-weight: 500;
 }
 

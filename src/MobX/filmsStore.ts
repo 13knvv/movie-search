@@ -10,7 +10,7 @@ export interface IFilm {
   nameRu: string
   posterUrl: string
   posterUrlPreview: string
-  rating: string
+  rating: number
   ratingVoteCount: number
   year: string
 }

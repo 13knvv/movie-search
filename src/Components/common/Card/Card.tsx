@@ -1,6 +1,7 @@
 import { NavLink } from 'react-router-dom'
 import { Navigate } from 'react-router-dom'
 import { IFilm } from '../../../MobX/filmsStore'
+import CircleRating from '../CircleRating/CircleRating'
 import s from './Card.module.css'
 
 interface ICardProps {
@@ -30,11 +31,11 @@ const Card = (props: ICardProps) => {
           <img src={posterUrlPreview} alt={nameRu} />
           <div className={s.cardDetails}>
             <div>Жанр: {listGenres}</div>
-            {rating}
+            <CircleRating percent={rating} inCard />
             <div>Год:{year}</div>
           </div>
         </div>
-        <h3>{nameRu}</h3>
+        <h4>{nameRu}</h4>
       </div>
     </NavLink>
   )
