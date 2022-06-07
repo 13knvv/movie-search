@@ -22,8 +22,14 @@ const Movie = () => {
     if (name) return name
   }).join(' / ')
 
-  const countries = movie.countries?.map(item => item.country).join(', ')
-  const genres = movie.genres?.map(item => item.genre).join(', ')
+  const countries = movie.countries?.map(item => {
+    return <span className={s.infoItemFraming}>{item.country}</span>
+  })
+
+  const genres = movie.genres?.map(item => {
+    return <span className={s.infoItemFraming}>{item.genre}</span>
+  })
+
   const ageLimits = movie.ratingAgeLimits?.slice(3) + '+'
   
   return (
@@ -35,43 +41,62 @@ const Movie = () => {
         <div className={s.info}>
           <h2>{namesMovie}</h2>
           { movie.ratingKinopoisk && 
-                                  <div>
-                                    <div>Kinopoisk</div> 
-                                    <CircleRating percent={movie.ratingKinopoisk}/>
-                                    <div>{movie?.ratingKinopoiskVoteCount} голосов</div>
-                                  </div>
+                            <div className={s.ratingWpapp}>
+                              <div className={s.ratingTitle}>Kinopoisk</div> 
+                              <CircleRating percent={movie.ratingKinopoisk}/>
+                              <div className={s.ratingVoteCount}>{movie?.ratingKinopoiskVoteCount}</div> 
+                              <div className={s.ratingVoteCount}>голосов</div>
+                            </div>
           }
 
           { movie.ratingImdb &&
-                            <div>
-                              <div>Imdb</div> 
+                            <div className={s.ratingWpapp}>
+                              <div className={s.ratingTitle}>Imdb</div> 
                               <CircleRating percent={movie.ratingImdb}/>
-                              <div>{movie?.ratingImdbVoteCount} голосов</div>
+                              <div className={s.ratingVoteCount}>{movie?.ratingImdbVoteCount}</div> 
+                              <div className={s.ratingVoteCount}>голосов</div>
                             </div>
           }
 
           { movie.year && 
-                      <div><span className={s.infoItem}>Год: </span>{movie.year}</div>
+                      <div className={s.infoItem}>
+                        <span className={s.infoItemTitle}>Год: </span>
+                        <span className={s.infoItemFraming}>{movie.year}</span>
+                      </div>
           }
 
           { countries && 
-                      <div><span className={s.infoItem}>Страна: </span>{countries}</div>
+                      <div className={s.infoItem}>
+                        <span className={s.infoItemTitle}>Страна: </span>
+                        {countries}
+                      </div>
           }
 
           { genres && 
-                    <div><span className={s.infoItem}>Жанр: </span>{genres}</div>
+                    <div className={s.infoItem}>
+                      <span className={s.infoItemTitle}>Жанр: </span>
+                      <div className={s.aaa}>{genres}</div>
+                    </div>
           }
 
           { movie.filmLength &&
-                    <div><span className={s.infoItem}>Продолжительность: </span>{movie.filmLength + ' мин.'}</div>
+                    <div className={s.infoItem}>
+                      <span className={s.infoItemTitle}>Продолжительность: </span>
+                      <span className={s.infoItemFraming}>{movie.filmLength + ' мин.'}</span>
+                    </div>
           }
           
           { ageLimits &&
-                    <div><span className={s.infoItem}>Возрастные ограничения: </span>{ageLimits}</div>
+                    <div className={s.infoItem}>
+                      <span className={s.infoItemTitle}>Возрастные ограничения: </span>
+                      <span className={s.infoItemFraming}>{ageLimits}</span>
+                    </div>
           }
           
           { movie.description && 
-                    <p>{movie.description}</p>
+                    <div className={s.description}>
+                      {movie.description}
+                    </div>
           }
           
         </div>

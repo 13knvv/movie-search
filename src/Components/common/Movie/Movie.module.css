@@ -24,5 +24,55 @@
 }
 
 .infoItem {
+  margin: 1.2rem 0;
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+
+.aaa {
+  display: inline-flex;
+  flex-wrap: wrap;
+}
+
+.infoItemTitle {
   font-weight: 600;
+}
+
+.ratingWpapp {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 1em;
+}
+
+.ratingTitle {
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  margin-bottom: 0.5rem;
+}
+
+.ratingVoteCount {
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 0.8rem;
+}
+
+.infoItemFraming {
+  border-radius: 1rem;
+  padding: 0.2rem 0.8rem 0.40rem;
+  background-color: black;
+  box-shadow: 0px 0px 2px 2px rgba(255, 255, 255, 0.17);
+  margin-left: 0.7rem;
+  cursor: default;
+  font-size: 1.034rem;
+}
+
+.infoItemFraming:hover {
+  box-shadow: 0px 0px 3px 3px rgba(255, 255, 255, 0.17);
+}
+
+.description {
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.5rem;
+  text-indent: 1rem;
+  margin: 2rem 0;
 }

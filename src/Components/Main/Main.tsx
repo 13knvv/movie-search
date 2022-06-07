@@ -6,7 +6,7 @@ const Main = () => {
   return (
     <div>
       <NavLink to={'/top/best-films'} >250 лучших фильмов</NavLink>
-      <CircleRating percent={7.8} inCard />
+      <CircleRating percent={6}  />
     </div>
   )
 }
