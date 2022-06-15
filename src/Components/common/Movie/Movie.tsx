@@ -23,11 +23,11 @@ const Movie = () => {
   }).join(' / ')
 
   const countries = movie.countries?.map(item => {
-    return <span className={s.infoItemFraming}>{item.country}</span>
+    return <span className={s.itemFraming}>{item.country}</span>
   })
 
   const genres = movie.genres?.map(item => {
-    return <span className={s.infoItemFraming}>{item.genre}</span>
+    return <span className={s.itemFraming}>{item.genre}</span>
   })
 
   const ageLimits = movie.ratingAgeLimits?.slice(3) + '+'
@@ -61,7 +61,7 @@ const Movie = () => {
           { movie.year && 
                       <div className={s.infoItem}>
                         <span className={s.infoItemTitle}>Год: </span>
-                        <span className={s.infoItemFraming}>{movie.year}</span>
+                        <span className={s.itemFraming}>{movie.year}</span>
                       </div>
           }
 
@@ -75,21 +75,21 @@ const Movie = () => {
           { genres && 
                     <div className={s.infoItem}>
                       <span className={s.infoItemTitle}>Жанр: </span>
-                      <div className={s.aaa}>{genres}</div>
+                      <div className={s.genresWrapp}>{genres}</div>
                     </div>
           }
 
           { movie.filmLength &&
                     <div className={s.infoItem}>
                       <span className={s.infoItemTitle}>Продолжительность: </span>
-                      <span className={s.infoItemFraming}>{movie.filmLength + ' мин.'}</span>
+                      <span className={s.itemFraming}>{movie.filmLength + ' мин.'}</span>
                     </div>
           }
           
           { ageLimits &&
                     <div className={s.infoItem}>
                       <span className={s.infoItemTitle}>Возрастные ограничения: </span>
-                      <span className={s.infoItemFraming}>{ageLimits}</span>
+                      <span className={s.itemFraming}>{ageLimits}</span>
                     </div>
           }
           

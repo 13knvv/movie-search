@@ -21,9 +21,9 @@ const CircleRating = (props: ICircleRatingProps) => {
   return ( <>
      { props.inCard ? 
           <div className={s.ratingWrapp}>
-            <svg width="40" height="40">
+            <svg width="60" height="60">
               <circle className={s.circle} ref={circle} stroke={color} 
-                strokeWidth="2" cx="20" cy="20" r="16" fill="transparent" />
+                strokeWidth="3" cx="30" cy="30" r="24" fill="transparent" />
             </svg>
             <span className={s.ratingText}  style={{ color:`${color}`, fontSize: "16px"}}>
               {props.percent}

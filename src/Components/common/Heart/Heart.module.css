@@ -1,0 +1,7 @@
+.heartWrapp {
+  cursor: pointer;
+}
+
+.heartWrapp:hover {
+  transform: scale(1.05);
+}
