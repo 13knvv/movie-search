@@ -18,6 +18,7 @@ const BestFilms = (props: IBestFilmsProps) => {
 
   return (
     <div>
+      <h2>250 лучших фильмов</h2>
       <Pagination pagesCount={props.pagesCount}
                   currentPage={props.currentPage}
                   onPageChange={props.onPageChange} />

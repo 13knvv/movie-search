@@ -1,11 +1,29 @@
-.title a {
+.title a, .linkMore a {
   color: #ffffff;
+  transition: var(--transition);
   text-decoration: none;
+}
+
+.title a:hover, .linkMore a:hover {
+  color: rgba(243, 253, 253, 0.705);
+}
+
+.linkMore {
+  text-align: end;
+  margin: 1rem 0;
+}
+
+.linkMore a {
+  font-size: 1.1rem;
+  font-weight: 600;
+  padding: 0.3rem 1rem 0.4rem;
+  border-radius: 0.5rem;
   transition: var(--transition);
 }
 
-.title a:hover {
-  color: rgba(243, 253, 253, 0.705);
+.linkMore:hover a {
+  transform: scale(1.05);
+  background-color: black;
 }
 
 .scrollContainer {
@@ -78,6 +96,16 @@
 .nextArrow {
   right: 0px;
 }
+
+.arrowDisabled {
+  cursor: default;
+}
+
+.arrowDisabled svg, .arrowDisabled:hover svg, .arrowDisabled:active svg {
+  fill:rgba(243, 253, 253, 0.705);
+  transform: scale(0.70);
+}
+
 
 @media only screen and (max-width: 1024px) {
   .scrollWrapp {
