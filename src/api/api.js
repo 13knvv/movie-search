@@ -23,6 +23,22 @@ export const filmAPI = {
                         return response.data
                       }
                     )
-    }
+    },
+
+}
+
+
+export const bookmarksAPI = {
+   
+    setBookmarks(bookmarks) {
+      const item = JSON.stringify(bookmarks)
+      localStorage.setItem('bookmarks', item)
+    },
+
+    getBookmarks() {
+      const item = localStorage.getItem('bookmarks')
+      const bookmarks = JSON.parse(item)
+      return bookmarks
+    },
 
 }

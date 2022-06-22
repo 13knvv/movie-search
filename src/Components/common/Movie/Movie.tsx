@@ -4,6 +4,7 @@ import { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { useStores } from '../../../MobX/stores'
 import CircleRating from '../CircleRating/CircleRating'
+import Heart from '../Heart/Heart'
 import s from './Movie.module.css'
 
 
@@ -36,10 +37,14 @@ const Movie = () => {
     <div>
       <div className={s.posterInfoWrapp}>
         <div className={s.poster}>
+          <div className={s.heartWrapp}>
+              <Heart filmId={movie.kinopoiskId}/>
+          </div>
           <img src={movie.posterUrl} alt={namesMovie} />
         </div>
         <div className={s.info}>
           <h2>{namesMovie}</h2>
+            
           { movie.ratingKinopoisk && 
                             <div className={s.ratingWpapp}>
                               <div className={s.ratingTitle}>Kinopoisk</div> 

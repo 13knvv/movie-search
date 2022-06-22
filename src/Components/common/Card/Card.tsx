@@ -1,26 +1,22 @@
 import { NavLink } from 'react-router-dom'
 import { Navigate } from 'react-router-dom'
+import { IBookmarkFilm } from '../../../MobX/bookmarksStore'
 import { IFilm } from '../../../MobX/filmsStore'
 import CircleRating from '../CircleRating/CircleRating'
 import Heart from '../Heart/Heart'
 import s from './Card.module.css'
 
 interface ICardProps {
-  film: IFilm
+  film: IFilm | IBookmarkFilm
   inScroll?: boolean
 }
 
 const Card = (props: ICardProps) => {
-  const { countries,
-          filmId,
-          filmLength,
+  const { filmId,
           genres,
-          nameEn,
           nameRu,
-          posterUrl,
           posterUrlPreview,
           rating,
-          ratingVoteCount,
           year } = props.film
 
   const listGenres = genres.map((item, i) => {
@@ -33,11 +29,17 @@ const Card = (props: ICardProps) => {
         <div className={s.posterWrapp}>
           <img src={posterUrlPreview} alt={nameRu} />
           <div className={s.cardDetails}>
-            <div className={s.cardDetailsHeader}>
+            <div>
               <span className={s.itemFraming + ' ' + s.itemYear}>{year} год</span>
-              <NavLink to={''}> <div className={s.heart}><Heart /></div></NavLink>
+              <NavLink to={''}>
+                <div className={s.heart}>
+                  <Heart filmId={props.film.filmId} />
+                </div>
+              </NavLink>
             </div>
-            <div className={s.raitingWrapp}><CircleRating percent={rating} inCard /></div>
+            <div className={s.raitingWrapp}>
+              <CircleRating percent={rating} inCard />
+            </div>
             <div className={s.genresWrapp}>{listGenres}</div>
           </div>
         </div>

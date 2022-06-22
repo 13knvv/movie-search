@@ -14,7 +14,7 @@ export interface IMovie {
   hasImax?: boolean
   imdbId?: string
   isTicketsAvailable?: boolean
-  kinopoiskId?: number
+  kinopoiskId: number
   lastSync?: string
   logoUrl?: string
   nameEn?: null | string
@@ -50,7 +50,7 @@ export interface IMovie {
 
 
 class MovieStore {
-  movie: IMovie = {}
+  movie: IMovie = { kinopoiskId: 0}
 
   constructor() {
     makeAutoObservable(this)
