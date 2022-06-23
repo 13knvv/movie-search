@@ -57,6 +57,7 @@
 }
 .posterWrapp img {
   width: 100%;
+  height: 100%;
   display: block;
 }
 
@@ -114,7 +115,7 @@
 .itemYear {
   font-size: 1rem;
   font-weight: 600;
-  padding: 0.15rem 0.6rem 0.25rem;
+  padding: 0.13rem 0.6rem 0.25rem;
 }
 
 .heart {
@@ -129,7 +130,7 @@
 .heartInScroll {
   width: 1.6rem;
   right: 0.8rem;
-  top: 0.2rem;
+  top: 0.5rem;
 }
 
 .cardWrapp:hover .heart {

@@ -31,9 +31,9 @@ const Card = (props: ICardProps) => {
             <img src={posterUrlPreview} alt={nameRu} />
             <div className={s.cardDetails}>
               <div>
-                <span className={s.itemFraming + ' ' + s.itemYear}>
+                <div className={s.itemFraming + ' ' + s.itemYear}>
                   {year} год
-                </span>
+                </div>
               </div>
               <div className={s.raitingWrapp}>
                 <CircleRating percent={rating} inCard />

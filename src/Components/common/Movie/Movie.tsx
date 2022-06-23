@@ -107,10 +107,12 @@ const Movie = () => {
         </div>
         
       </div>
+      { movie.coverUrl && 
+                    <div className={s.coverUrl}>
+                    <img src={movie.coverUrl} alt={namesMovie} />
+                  </div>
+      }
       
-      <div className={s.coverUrl}>
-        <img src={movie.coverUrl} alt={namesMovie} />
-      </div>
     </div>
   )
   
