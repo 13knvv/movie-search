@@ -1,7 +1,7 @@
 import { toJS } from 'mobx'
 import { observer } from 'mobx-react-lite'
 import { useEffect } from 'react'
-import { useStores } from '../../MobX/stores'
+import { useStores } from '../../../MobX/stores'
 import BestFilms from './BestFilms'
 
 const BestFilmsContainer = () => {

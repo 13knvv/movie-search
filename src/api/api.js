@@ -25,6 +25,14 @@ export const filmAPI = {
                     )
     },
 
+    getPopularFilms(currentPage = 1) {
+        return axiosBase.get(`/api/v2.2/films/top?type=TOP_100_POPULAR_FILMS&page=${currentPage}`)
+                    .then(response => {
+                        return response.data
+                      }
+                    )
+    },
+
 }
 
 

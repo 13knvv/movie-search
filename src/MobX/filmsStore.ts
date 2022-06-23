@@ -15,14 +15,17 @@ export interface IFilm {
   year: string
 }
 
-interface IBestFilms {
+interface IListFilms {
   pagesCount?: number
   films?: Array<IFilm>
 }
 
 class FilmsStore {
-  bestFilms: IBestFilms = {}
+  bestFilms: IListFilms = {}
   bestFilmsCurrentPage: number = 1
+  
+  popularFilms: IListFilms = {}
+  popularFilmsCurrentPage: number = 1
 
   constructor() {
     makeAutoObservable(this)
@@ -32,7 +35,7 @@ class FilmsStore {
     this.bestFilmsCurrentPage = currentPage
   }
 
-  setBestFilms(bestFilms: IBestFilms) {
+  setBestFilms(bestFilms: IListFilms) {
     this.bestFilms = bestFilms
   }
 
@@ -40,6 +43,20 @@ class FilmsStore {
     const bestFilms = await filmAPI.getBestFilms(currentPage)
     this.setBestFilms(bestFilms)
     this.setBestFilmsCurrentPage(currentPage)
+  }
+
+  setPopularFilmsCurrentPage(currentPage: number) {
+    this.popularFilmsCurrentPage = currentPage
+  }
+
+  setPopularFilms(popularFilms: IListFilms) {
+    this.popularFilms = popularFilms
+  }
+
+  async getPopularFilms(currentPage: number) {
+    const popularFilms = await filmAPI.getPopularFilms(currentPage)
+    this.setPopularFilms(popularFilms)
+    this.setPopularFilmsCurrentPage(currentPage)
   }
 
 }

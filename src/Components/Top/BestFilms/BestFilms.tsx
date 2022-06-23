@@ -1,8 +1,7 @@
-import { IFilm } from '../../MobX/filmsStore'
-import Card from '../common/Card/Card'
-import CardsPage from '../common/CardsPage/CardsPage'
-import Pagination from '../common/Pagination/Pagination'
-import s from './BestFilms.module.css'
+import { IFilm } from '../../../MobX/filmsStore'
+import Card from '../../common/Card/Card'
+import CardsPage from '../../common/CardsPage/CardsPage'
+import Pagination from '../../common/Pagination/Pagination'
 
 interface IBestFilmsProps {
   pagesCount: number
