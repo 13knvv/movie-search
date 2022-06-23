@@ -11,6 +11,10 @@
   cursor: pointer;
 }
 
+.clear svg{
+  transition: var(--transition);
+}
+
 .clear:hover {
   color: rgba(243, 253, 253, 0.705);
 }

@@ -23,28 +23,32 @@ const Card = (props: ICardProps) => {
     return  <span className={s.itemFraming} key={i}>{item.genre}</span>
   })
 
-  return (<div className={s.cardWrapp}>
-    <NavLink to={`/movie/${filmId}`} className={s.cardLink} >
-      <div className={s.card + ' ' + (props.inScroll ? s.cardInScroll : '')} >
-        <div className={s.posterWrapp}>
-          <img src={posterUrlPreview} alt={nameRu} />
-          <div className={s.cardDetails}>
-            <div>
-              <span className={s.itemFraming + ' ' + s.itemYear}>{year} год</span>
-              
+  return (
+    <div className={s.cardWrapp}>
+      <NavLink to={`/movie/${filmId}`} className={s.cardLink} >
+        <div className={s.card + ' ' + (props.inScroll ? s.cardInScroll : '')} >
+          <div className={s.posterWrapp}>
+            <img src={posterUrlPreview} alt={nameRu} />
+            <div className={s.cardDetails}>
+              <div>
+                <span className={s.itemFraming + ' ' + s.itemYear}>
+                  {year} год
+                </span>
+              </div>
+              <div className={s.raitingWrapp}>
+                <CircleRating percent={rating} inCard />
+              </div>
+              <div className={s.genresWrapp}>
+                {listGenres}
+              </div>
             </div>
-            <div className={s.raitingWrapp}>
-              <CircleRating percent={rating} inCard />
-            </div>
-            <div className={s.genresWrapp}>{listGenres}</div>
           </div>
+          <h4>{nameRu}</h4>
         </div>
-        <h4>{nameRu}</h4>
+      </NavLink>
+      <div className={s.heart + ' ' + (props.inScroll ? s.heartInScroll : '')}>
+        <Heart filmId={props.film.filmId} />
       </div>
-    </NavLink>
-    <div className={s.heart + ' ' + (props.inScroll ? s.heartInScroll : '')}>
-      <Heart filmId={props.film.filmId} />
-    </div>
     </div>
   )
 }

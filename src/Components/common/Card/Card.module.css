@@ -1,9 +1,11 @@
+.cardWrapp {
+  position: relative;
+  transition: var(--transition);
+}
+
 .cardLink {
   text-decoration: none;
   color: #fff;
-}
-.cardWrapp {
-  position: relative;
 }
 
 .card {

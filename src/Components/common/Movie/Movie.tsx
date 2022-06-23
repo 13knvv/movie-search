@@ -23,12 +23,12 @@ const Movie = () => {
     if (name) return name
   }).join(' / ')
 
-  const countries = movie.countries?.map(item => {
-    return <span className={s.itemFraming}>{item.country}</span>
+  const countries = movie.countries?.map((item, i) => {
+    return <span className={s.itemFraming} key={i}>{item.country}</span>
   })
 
-  const genres = movie.genres?.map(item => {
-    return <span className={s.itemFraming}>{item.genre}</span>
+  const genres = movie.genres?.map((item, i) => {
+    return <span className={s.itemFraming} key={i}>{item.genre}</span>
   })
 
   const ageLimits = movie.ratingAgeLimits?.slice(3) + '+'
