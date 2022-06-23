@@ -2,9 +2,11 @@
   text-decoration: none;
   color: #fff;
 }
+.cardWrapp {
+  position: relative;
+}
 
 .card {
-  position: relative;
   transition: all 0.3s;
   width: 15.5rem;
   margin: 0.9rem 0.7rem;
@@ -81,11 +83,11 @@
   padding: 0.5rem;
 }
 
-.card:hover {
+.cardWrapp:hover {
   transform: scale(1.02);
 }
 
-.card:hover .cardDetails {
+.cardWrapp:hover .cardDetails {
   opacity: 1;
 }
 
@@ -114,13 +116,20 @@
 }
 
 .heart {
+  display: none;
   width: 2rem;
   position: absolute;
-  right: 0.5rem;
-  top: 0.5rem;
+  right: 1.2rem;
+  top: 1.2rem;
   z-index: 10;
 }
 
-.cardInScroll .heart {
-  width: 1.5rem;
+.heartInScroll {
+  width: 1.6rem;
+  right: 0.8rem;
+  top: 0.2rem;
+}
+
+.cardWrapp:hover .heart {
+  display: block;
 }

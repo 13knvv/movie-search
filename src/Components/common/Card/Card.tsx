@@ -23,7 +23,7 @@ const Card = (props: ICardProps) => {
     return  <span className={s.itemFraming} key={i}>{item.genre}</span>
   })
 
-  return (
+  return (<div className={s.cardWrapp}>
     <NavLink to={`/movie/${filmId}`} className={s.cardLink} >
       <div className={s.card + ' ' + (props.inScroll ? s.cardInScroll : '')} >
         <div className={s.posterWrapp}>
@@ -31,11 +31,7 @@ const Card = (props: ICardProps) => {
           <div className={s.cardDetails}>
             <div>
               <span className={s.itemFraming + ' ' + s.itemYear}>{year} год</span>
-              <NavLink to={''}>
-                <div className={s.heart}>
-                  <Heart filmId={props.film.filmId} />
-                </div>
-              </NavLink>
+              
             </div>
             <div className={s.raitingWrapp}>
               <CircleRating percent={rating} inCard />
@@ -46,7 +42,10 @@ const Card = (props: ICardProps) => {
         <h4>{nameRu}</h4>
       </div>
     </NavLink>
-    
+    <div className={s.heart + ' ' + (props.inScroll ? s.heartInScroll : '')}>
+      <Heart filmId={props.film.filmId} />
+    </div>
+    </div>
   )
 }
 
