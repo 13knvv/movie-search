@@ -17,12 +17,20 @@ class BookmarksStore {
     makeAutoObservable(this)
   }
 
-  getBookmarksFilms() {
+  getBookmarksFilms = () => {
     const bookmarks = bookmarksAPI.getBookmarks()
-    this.filmsOfBookmarks = bookmarks
+    if (bookmarks) {
+      this.filmsOfBookmarks = bookmarks
+    }
+     
   }
 
-  async setBookmarkFilm(filmId: number) {
+  deleteAllBookmarks = () => {
+    bookmarksAPI.clearBookmarks()
+    this.getBookmarksFilms()
+  }
+
+   setBookmarkFilm = async (filmId: number) => {
     const movie = await filmAPI.getMovie(filmId)
     runInAction ( () => {
       this.filmsOfBookmarks.push({
@@ -37,7 +45,7 @@ class BookmarksStore {
     bookmarksAPI.setBookmarks(this.filmsOfBookmarks)
   }
 
-  deleteBookmarkFilm(filmId: number) {
+  deleteBookmarkFilm = (filmId: number) => {
     const index = this.filmsOfBookmarks.findIndex(film => {
         if (film.filmId === filmId) {
           return true
@@ -47,8 +55,8 @@ class BookmarksStore {
     bookmarksAPI.setBookmarks(this.filmsOfBookmarks)
   }
 
-  getDoesFilmHaveBookmark (filmId: number) {
-    return this.filmsOfBookmarks.find(film => {
+  getDoesFilmHaveBookmark = (filmId: number) => {
+    return this.filmsOfBookmarks?.find(film => {
       if (film.filmId === filmId) {
         return true
       }

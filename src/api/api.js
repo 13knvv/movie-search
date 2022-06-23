@@ -41,4 +41,9 @@ export const bookmarksAPI = {
       return bookmarks
     },
 
+    clearBookmarks() {
+      const item = JSON.stringify([])
+      localStorage.setItem('bookmarks', item)
+    }
+
 }

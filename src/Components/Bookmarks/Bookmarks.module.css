@@ -1,0 +1,20 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.clear {
+  display: flex;
+  align-items: center;
+  transition: var(--transition);
+  cursor: pointer;
+}
+
+.clear:hover {
+  color: rgba(243, 253, 253, 0.705);
+}
+
+.clear:hover svg{
+  fill: rgba(243, 253, 253, 0.705);
+}
