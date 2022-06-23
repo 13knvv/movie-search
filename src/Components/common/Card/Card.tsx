@@ -35,9 +35,11 @@ const Card = (props: ICardProps) => {
                   {year} год
                 </div>
               </div>
-              <div className={s.raitingWrapp}>
-                <CircleRating percent={rating} inCard />
-              </div>
+              { !!+rating && //// если рейтинга нет то приходит ожидаеммый рейтинг как строка он нам не нужен
+                  <div className={s.raitingWrapp}>
+                    <CircleRating percent={rating} inCard />
+                  </div>
+              }
               <div className={s.genresWrapp}>
                 {listGenres}
               </div>
