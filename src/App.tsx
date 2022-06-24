@@ -3,11 +3,12 @@ import s from './App.module.css'
 import { Route, Routes } from 'react-router-dom'
 import Main from './Components/Main/Main'
 import TopContainer from './Components/Top/TopContainer'
-import BestFilmsContainer from './Components/Top/BestFilms/BestFilmsContainer'
 import Movie from './Components/common/Movie/Movie'
 import BookmarksContainer from './Components/Bookmarks/BookmarksContainer'
 import HeaderContainer from './Components/Header/HeaderContainer'
 import PopularFilmsContainer from './Components/Top/PopularFilms/PopularFilmsContainer'
+import BestFilmsContainer from './Components/Top/BestFilms/BestFilmsContainer'
+import AwaitFilmsContainer from './Components/Top/AwaitFilms/AwaitFilmsContainer'
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path='/top' element={<TopContainer />} />
           <Route path='/top/best-films' element={<BestFilmsContainer />} />
           <Route path='/top/popular-films' element={<PopularFilmsContainer />} />
+          <Route path='/top/await-films' element={<AwaitFilmsContainer />} />
           <Route path='/movie/:filmId' element={<Movie />} />
           <Route path='/bookmarks' element={<BookmarksContainer />} />
         </Routes>

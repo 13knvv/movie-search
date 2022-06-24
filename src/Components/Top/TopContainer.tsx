@@ -8,14 +8,17 @@ const TopContainer = () => {
   const { filmsStore } = useStores()
   const bestFilms = toJS(filmsStore.bestFilms.films)
   const popularFilms = toJS(filmsStore.popularFilms.films)
+  const awaitFilms = toJS(filmsStore.awaitFilms.films)
 
   useEffect(() =>  {
     filmsStore.getBestFilms(1)
     filmsStore.getPopularFilms(1)
+    filmsStore.getAwaitFilms(1)
   }, [])
 
   return <Top bestFilms={bestFilms}
-              popularFilms={popularFilms} />
+              popularFilms={popularFilms}
+              awaitFilms={awaitFilms} />
 }
 
 export default observer(TopContainer)

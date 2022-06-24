@@ -27,6 +27,9 @@ class FilmsStore {
   popularFilms: IListFilms = {}
   popularFilmsCurrentPage: number = 1
 
+  awaitFilms: IListFilms = {}
+  awaitFilmsCurrentPage: number = 1
+
   constructor() {
     makeAutoObservable(this)
   }
@@ -57,6 +60,20 @@ class FilmsStore {
     const popularFilms = await filmAPI.getPopularFilms(currentPage)
     this.setPopularFilms(popularFilms)
     this.setPopularFilmsCurrentPage(currentPage)
+  }
+
+  setAwaitFilmsCurrentPage(currentPage: number) {
+    this.awaitFilmsCurrentPage = currentPage
+  }
+
+  setAwaitFilms(awaitFilms: IListFilms) {
+    this.awaitFilms = awaitFilms
+  }
+
+  async getAwaitFilms(currentPage: number) {
+    const awaitFilms = await filmAPI.getAwaitFilms(currentPage)
+    this.setAwaitFilms(awaitFilms)
+    this.setAwaitFilmsCurrentPage(currentPage)
   }
 
 }

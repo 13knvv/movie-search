@@ -33,6 +33,14 @@ export const filmAPI = {
                     )
     },
 
+    getAwaitFilms(currentPage = 1) {
+        return axiosBase.get(`/api/v2.2/films/top?type=TOP_AWAIT_FILMS&page=${currentPage}`)
+                    .then(response => {
+                        return response.data
+                      }
+                    )
+    },
+
 }
 
 
